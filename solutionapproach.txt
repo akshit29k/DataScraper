@@ -1,0 +1,59 @@
+# Libraries Used
+nltk(Natural Processing Toolkit) - For calculating words and sentences in text
+pd(pandas) - For reading excel and creating data frame for updating
+bs4(Beautiful Soap) - For scraping the website and reading the required data
+requests - For fetching the data from given URL
+re(regular expression) - For pattern matching and manupulating data
+glob - For reading directory
+os(operating system) - For reading path names
+
+# Approach Used
+1.Reading Files:
+-> The code defines a method read_file_data to read text files using either UTF-8 or Latin-1 encoding
+based on the content's compatibility.
+-> It reads an Excel file named "Input.xlsx" using Pandas and creates a DataFrame (df) to store the data.
+
+2.Web Scraping and File Creation:
+-> It defines a function fetchAndSaveToFile to scrape text content from URLs using BeautifulSoup and save
+it to text files in a folder named "data".
+-> The code iterates over URLs from the Excel file, fetches content from each URL, and saves it to a text
+file in the "data" folder.
+
+3.Stopword Handling:
+-> It reads stopwords from multiple files in the "stopword" folder and stores them in a list (listOf), combining
+them into a single list (newList) after some processing.
+
+4.Text Cleaning:
+-> It cleans the text files in the "data" folder by removing stopwords and saving the cleaned text files in a
+folder named "cleaneddata".
+
+5.Master Dictionary Cleaning:
+-> It loads positive and negative words from files in the "MasterDictionary" folder, removes stopwords, and stores
+them in separate lists (positive_words and negative_words).
+
+6.Sentiment Analysis:
+-> It calculates sentiment scores (positive score, negative score, polarity score, and subjectivity score) for each
+text file in the "cleaneddata" folder based on the presence of positive and negative words from the master dictionary.
+And storing the scores in DataFrame.
+
+7.Readability Analysis:
+-> It analyzes readability metrics (average sentence length, percentage of complex words, FOG index, average number
+of words per sentence, and count of complex words) for each text file in the "data" folder. And then storing the scores
+in DataFrame.
+
+8.Word Count Analysis:
+-> It counts the number of words in each cleaned text file and adds it to the DataFrame.
+
+9.Syllable Count Analysis:
+-> It counts the number of syllables per word in each cleaned text file and add it to DataFrame
+
+10.Personal Pronoun Count Analysis:
+-> It counts the occurrences of personal pronouns (e.g., I, we, my, ours, us) in each original text file and add it to DataFrame.
+
+11.Average Word Length Analysis:
+-> It calculates the average word length in each cleaned text file and add it to DataFrame.
+
+Output Creation:
+-> It creates an Excel file named "output_data.xlsx" in the "output_data_structure" folder containing all the analyzed data.
+-> This approach involves various stages, including data retrieval, cleaning, analysis, and output generation, utilizing libraries
+like Pandas, NLTK, BeautifulSoup, and regular expressions.
